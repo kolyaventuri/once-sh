@@ -1,0 +1,24 @@
+{
+  "name": "once-sh",
+  "version": "1.0.0",
+  "description": "The main website for Once.SH",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kolyaventuri/once-sh.git"
+  },
+  "keywords": [
+    "once",
+    "secret",
+    "onetimesecret"
+  ],
+  "author": "Kolya Venturi <me@kolya.co>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kolyaventuri/once-sh/issues"
+  },
+  "homepage": "https://github.com/kolyaventuri/once-sh#readme"
+}
