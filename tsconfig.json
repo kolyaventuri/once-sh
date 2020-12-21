@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "target": "es5",
     "allowJs": true,
     "skipLibCheck": false,
@@ -10,9 +11,10 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "noEmit": false,
-    "jsx": "preserve",
+    "jsx": "react",
     "noUnusedLocals": true,
-    "noUnusedParameters": true
+    "noUnusedParameters": true,
+    "typeRoots": ["node_modules/@types", "@types"]
   },
   "exclude": ["node_modules"],
   "include": ["bin", "./app.ts", "src", "test"]

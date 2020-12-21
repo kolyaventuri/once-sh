@@ -5,7 +5,7 @@ const cssLoaderOpts = 'css-loader?modules&importLoaders=true&localIdentName=[nam
 
 module.exports = {
   entry: [
-    path.join(process.cwd(), 'src/client/index.ts')
+    path.join(process.cwd(), 'src/client/index.tsx')
   ],
   plugins: [
     new webpack.EnvironmentPlugin({
