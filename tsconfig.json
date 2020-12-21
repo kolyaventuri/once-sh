@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "target": "es5",
+    "target": "es6",
     "allowJs": true,
     "skipLibCheck": false,
     "esModuleInterop": true,
@@ -14,8 +14,8 @@
     "jsx": "react",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "typeRoots": ["node_modules/@types", "@types"]
+    "typeRoots": ["./node_modules/@types", "./@types"]
   },
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules", "webpack", "./@types", "**/*.js"],
   "include": ["bin", "./app.ts", "src", "test"]
 }

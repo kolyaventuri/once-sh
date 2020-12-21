@@ -31,6 +31,7 @@
   "homepage": "https://github.com/kolyaventuri/once-sh#readme",
   "dependencies": {
     "debug": "^4.3.1",
+    "dotenv": "^8.2.0",
     "http-status": "^1.5.0",
     "koa": "^2.13.0",
     "koa-bodyparser": "^4.3.0",
@@ -60,8 +61,6 @@
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@types/sinon": "^9.0.9",
-    "@types/webpack-dev-middleware": "^3.7.2",
-    "@types/webpack-hot-middleware": "^2.25.0",
     "@typescript-eslint/eslint-plugin": "^4.10.0",
     "@typescript-eslint/parser": "^4.10.0",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.4.1",
@@ -96,6 +95,7 @@
     "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "^5.11.0",
     "webpack-cli": "^4.2.0",
+    "webpack-hot-middleware": "^2.25.0",
     "webpack-merge": "^5.7.2",
     "xo": "^0.36.1"
   },
@@ -111,17 +111,14 @@
   },
   "xo": {
     "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-      "project": [
-        "./tsconfig.json"
-      ]
-    },
+    "parserOptions": {},
     "extends": [
       "xo-typescript",
       "plugin:@typescript-eslint/recommended"
     ],
     "extensions": [
-      "ts"
+      "ts",
+      "tsx"
     ],
     "space": true,
     "compilerOptions": {
@@ -146,18 +143,22 @@
     ],
     "settings": {
       "react": {
-        "version": "16.5"
+        "version": "17.0"
       }
     },
     "env": [
       "node"
     ],
     "include": [
-      "**/*.ts?(x)"
+      "src/*.ts?(x)",
+      "test/*.ts?(x)",
+      "bin/*.ts?(x)",
+      "./app.ts"
     ],
     "ignore": [
-      "*.js",
-      "scripts/**/*"
+      "**/*.js",
+      "scripts/**/*",
+      "webpack/**/*.ts?(x)"
     ]
   },
   "ava": {

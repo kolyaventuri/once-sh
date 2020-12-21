@@ -13,6 +13,7 @@ import {isLocal, origin} from './src/constants/environment';
 const app = new Koa();
 
 if (isLocal) {
+  /* eslint-disable @typescript-eslint/no-var-requires */
   require('./webpack/dev-server').default(app);
 
   if (fs.existsSync(path.join(__dirname, '.env'))) {
@@ -22,6 +23,7 @@ if (isLocal) {
       throw result.error;
     }
   }
+  /* eslint-enable @typescript-eslint/no-var-requires */
 }
 
 app.use(logger());
@@ -50,8 +52,8 @@ app.use(async ctx => {
 });
 
 app.on('error', (err, ctx) => {
-  const context = ctx ? ctx.toString() : '';
-  const error = `Server Error:\n${err.stack}${context}`;
+  const context: string = ctx ? ctx.toString() : '';
+  const error = `Server Error:\n${err.stack as string}${context}`;
 
   debug(new Error(error));
 });

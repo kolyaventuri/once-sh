@@ -1,1 +1,1 @@
-declare module 'webpack-hot-middleware' {}
+declare module 'webpack-hot-middleware';
