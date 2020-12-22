@@ -9,7 +9,7 @@ export enum Environment {
 export const isProduction = process.env.NODE_ENV === 'production' && process.env.ENV === 'production';
 export const isTest = process.env.NODE_ENV === 'production' && process.env.ENV === 'test';
 export const isDev = process.env.NODE_ENV === 'development' && process.env.ENV === 'dev';
-export const isLocal = process.env.NODE_ENV === 'development' && process.env.EVN === 'local';
+export const isLocal = process.env.NODE_ENV === 'development' && process.env.ENV === 'local';
 
 export const environment: Environment = (() => {
   if (isProduction) {
