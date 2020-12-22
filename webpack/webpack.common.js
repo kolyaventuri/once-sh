@@ -1,7 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
-
-const cssLoaderOpts = 'css-loader?modules&importLoaders=true&localIdentName=[name]__[local]___[hash:base64:5]';
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: [
@@ -11,7 +10,11 @@ module.exports = {
     new webpack.EnvironmentPlugin({
       ENV: 'local',
       GA_TRACKING: process.env.GA_TRACKING || null
-    })
+    }),
+    new MiniCssExtractPlugin({
+      filename: '[name].bundle.css',
+      chunkFilename: '[id].css'
+    }),
   ],
   module: {
     rules: [
@@ -21,23 +24,24 @@ module.exports = {
         loader: 'ts-loader'
       },
       {
-        test: /\.(scss)$/,
+        test: /\.css$/i,
         use: [
+          'style-loader',
           {
-            loader: 'style-loader'
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+            },
           },
           {
-            loader: cssLoaderOpts
-          },
-          {
-            loader: 'sass-loader'
+            loader: 'postcss-loader',
           }
         ]
       }
     ]
   },
   resolve: {
-    extensions: [ '.ts', '.tsx', '.js' ] // JS is still required so that HMR resolves
+    extensions: [ '.ts', '.tsx', '.js', '.css' ] // JS is still required so that HMR resolves
   },
   output: {
     filename: 'bundle.js',
