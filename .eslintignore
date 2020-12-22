@@ -1,3 +1,4 @@
 webpack/
 tailwind.config.js
 postcss.config.js
+stylelint.config.js

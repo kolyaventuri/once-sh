@@ -12,7 +12,8 @@
     "test": "npm-run-all lint:* test:*",
     "test:unit": "cross-env TS_NODE_PROJECT=tsconfig.ava.json ava",
     "lint:tsc": "tsc --noEmit",
-    "lint:lint": "xo --fix"
+    "lint:lint": "xo --fix",
+    "lint:styles": "stylelint src/**/*.css"
   },
   "repository": {
     "type": "git",
@@ -106,7 +107,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm-run-all lint:tsc && lint-staged"
+      "pre-commit": "npm-run-all lint:tsc lint:styles && lint-staged"
     }
   },
   "lint-staged": {
