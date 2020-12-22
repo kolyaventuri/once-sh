@@ -14,8 +14,8 @@
     "jsx": "react",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "typeRoots": ["./node_modules/@types", "./@types"]
+    "typeRoots": ["node_modules/@types", "types"]
   },
-  "exclude": ["node_modules", "webpack", "./@types", "**/*.js"],
+  "exclude": ["node_modules", "webpack", "types", "**/*.js"],
   "include": ["bin", "./app.ts", "src", "test"]
 }
