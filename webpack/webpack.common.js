@@ -26,6 +26,7 @@ module.exports = {
       {
         test: /\.css$/i,
         use: [
+          'css-hot-loader',
           'style-loader',
           {
             loader: 'css-loader',
