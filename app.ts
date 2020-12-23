@@ -4,6 +4,8 @@ import Koa from 'koa';
 import cors from 'koa-cors';
 import logger from 'koa-logger';
 import helmet from 'koa-helmet';
+// We need to import the regular helmet since default CSP directives aren't properly exported from koa-helmet
+import helmet2 from 'helmet';
 import send from 'koa-send';
 import serve from 'koa-static';
 
@@ -30,7 +32,15 @@ app.use(logger());
 app.use(cors({
   origin
 }));
-app.use(helmet());
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      ...helmet2.contentSecurityPolicy.getDefaultDirectives(),
+      'script-src': ['\'self\'', 'https://*.fontawesome.com', '\'unsafe-inline\''],
+      'connect-src': ['\'self\'', 'https://*.fontawesome.com']
+    }
+  }
+}));
 
 app.use(async (ctx, next) => {
   await next();

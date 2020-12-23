@@ -11,5 +11,15 @@ ReactDOM.render((
   </Router>
 ), container);
 
+const kitToken: string = process.env.FONTAWESOME_KIT ?? '';
+// Append fontawesome
+if (document.querySelectorAll(`src[data-fa-token="${kitToken}"]`).length === 0) {
+  const script = document.createElement('script');
+  script.setAttribute('src', `https://kit.fontawesome.com/${kitToken}.js`);
+  script.setAttribute('crossorigin', 'anonymous');
+
+  document.head.append(script);
+}
+
 // @ts-expect-error - Needed for webpack hot reloading, as TS doesn't recognize module.hot
 module?.hot?.accept();
